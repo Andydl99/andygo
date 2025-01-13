@@ -24,7 +24,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="zh">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                function getTheme() {
+                  const theme = localStorage.getItem('theme')
+                  if (theme === 'dark') return true
+                  if (theme === 'light') return false
+                  return window.matchMedia('(prefers-color-scheme: dark)').matches
+                }
+                document.documentElement.classList.toggle('dark', getTheme())
+              })()
+            `,
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
