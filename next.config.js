@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["assets.aceternity.com"], // 添加允许的图像域名
+    domains: ["assets.aceternity.com"],
   },
   // 其他配置...
 };
